@@ -44,6 +44,49 @@ class CategoryRepository
         return self::$categories;
     }
 
+    public function getCategoriesFromAliases(array $categoriesAliases): ?array
+    {
+        $categoryPathAlias = "catalog/" . array_shift($categoriesAliases);
+
+        $allCategories = $this->categories();
+
+        foreach ($allCategories[0] as $key => $value) {
+            if ($value->category_board_alias === $categoryPathAlias) {
+
+                $findCategories = [
+                    'breadcrumbs' => [
+                        $categoryPathAlias => $value
+                    ],
+                    'current' => $value
+                ];
+
+                $categoryParentId = $value->category_board_id;
+
+                foreach ($categoriesAliases as $alias) {
+                    if (!isset($allCategories[$categoryParentId])) {
+                        return null;
+                    }
+
+                    $children = $allCategories[$categoryParentId];
+                    $categoryParentId = null;
+                    $categoryPathAlias = $categoryPathAlias . '/' . $alias;
+
+                    foreach ($children as $key => $value) {
+                        if ($value->category_board_alias === $categoryPathAlias) {
+                            $findCategories['breadcrumbs'][$categoryPathAlias] = $value;
+                            $findCategories['current'] = $value;
+                            $categoryParentId = $value->category_board_id;
+                        }
+                    }
+                }
+
+                return $findCategories;
+            }
+        }
+
+        return null;
+    }
+
     private function categoriesAlias(&$children, string $catAlias = ''): void
     {
         foreach ($children as $key => &$value) {
