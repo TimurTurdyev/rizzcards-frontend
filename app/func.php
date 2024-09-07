@@ -42,6 +42,7 @@ if (!function_exists('prepareAds')) {
         }
 
         $ads->date_format = date('d.m.Y', strtotime($ads->ads_datetime_add));
+        $ads->text_format = nl2br(strip_tags((string)$ads->ads_text));
     }
 }
 
