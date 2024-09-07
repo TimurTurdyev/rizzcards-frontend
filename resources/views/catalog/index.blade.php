@@ -115,269 +115,41 @@
                         </div>
                     </div>
                     <div class="catalog__products">
-                        <a href="#" class="product">
-                            <div class="product__image">
-                                <picture>
-                                    <source srcset="{{ asset('dist') }}/img/products/img1.webp" type="image/webp"><img src="{{ asset('dist') }}/img/products/img1.png"
-                                                                                                   alt="">
-                                </picture>
-                                <div class="product__images-button">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
-                                    </svg>
-                                    <span>3</span>
+                        @foreach( $ads as $item )
+                            <a href="{{ linkAds($current, $item) }}" class="product">
+                                <div class="product__image">
+                                    <picture>
+{{--                                        <source srcset="{{ $item->small_images[0] }}" type="image/webp">--}}
+                                        <img src="{{ $item->big_images[0] }}" alt="{{ $item->ads_title }}">
+                                    </picture>
+                                    <div class="product__images-button">
+                                        <svg>
+                                            <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
+                                        </svg>
+                                        <span>{{ count($item->big_images) }}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="product__info">
-                                <div class="product__name">Продаю карточку товара</div>
-                                <div class="product__price">150,000 ₽</div>
-                                <div class="product__description">
-                                    <div class="product__description-title">Описание</div>
-                                    Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
-                                    свечи обязательно поднимут
-                                    настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
-                                    горючая смесь. Предназначено
-                                    для использования на открытом воздухе. <br><br>
-                                    В упаковке 4 штуки.
+                                <div class="product__info">
+                                    <div class="product__name">Продаю карточку товара</div>
+                                    <div class="product__price">{{ $item->price_format }} ₽</div>
+                                    <div class="product__description">
+                                        <div class="product__description-title">Описание</div>
+                                        Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
+                                        свечи обязательно поднимут
+                                        настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
+                                        горючая смесь. Предназначено
+                                        для использования на открытом воздухе. <br><br>
+                                        В упаковке 4 штуки.
+                                    </div>
+                                    <div class="product__date">
+                                        <svg>
+                                            <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
+                                        </svg>
+                                        {{ $item->date_format }}
+                                    </div>
                                 </div>
-                                <div class="product__date">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
-                                    </svg>
-                                    01 июля 2024
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="product">
-                            <div class="product__image">
-                                <picture>
-                                    <source srcset="{{ asset('dist') }}/img/products/img2.webp" type="image/webp"><img src="{{ asset('dist') }}/img/products/img2.png"
-                                                                                                   alt="">
-                                </picture>
-                                <div class="product__images-button">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
-                                    </svg>
-                                    <span>3</span>
-                                </div>
-                            </div>
-                            <div class="product__info">
-                                <div class="product__name">Продаю карточку товара</div>
-                                <div class="product__price">150,000 ₽</div>
-                                <div class="product__description">
-                                    <div class="product__description-title">Описание</div>
-                                    Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
-                                    свечи обязательно поднимут
-                                    настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
-                                    горючая смесь. Предназначено
-                                    для использования на открытом воздухе. <br><br>
-                                    В упаковке 4 штуки.
-                                </div>
-                                <div class="product__date">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
-                                    </svg>
-                                    01 июля 2024
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="product">
-                            <div class="product__image">
-                                <picture>
-                                    <source srcset="{{ asset('dist') }}/img/products/img3.webp" type="image/webp"><img src="{{ asset('dist') }}/img/products/img3.png"
-                                                                                                   alt="">
-                                </picture>
-                                <div class="product__images-button">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
-                                    </svg>
-                                    <span>3</span>
-                                </div>
-                            </div>
-                            <div class="product__info">
-                                <div class="product__name">Продаю карточку товара</div>
-                                <div class="product__price">150,000 ₽</div>
-                                <div class="product__description">
-                                    <div class="product__description-title">Описание</div>
-                                    Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
-                                    свечи обязательно поднимут
-                                    настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
-                                    горючая смесь. Предназначено
-                                    для использования на открытом воздухе. <br><br>
-                                    В упаковке 4 штуки.
-                                </div>
-                                <div class="product__date">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
-                                    </svg>
-                                    01 июля 2024
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="product">
-                            <div class="product__image">
-                                <picture>
-                                    <source srcset="{{ asset('dist') }}/img/products/img4.webp" type="image/webp"><img src="{{ asset('dist') }}/img/products/img4.png"
-                                                                                                   alt="">
-                                </picture>
-                                <div class="product__images-button">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
-                                    </svg>
-                                    <span>3</span>
-                                </div>
-                            </div>
-                            <div class="product__info">
-                                <div class="product__name">Продаю карточку товара</div>
-                                <div class="product__price">150,000 ₽</div>
-                                <div class="product__description">
-                                    <div class="product__description-title">Описание</div>
-                                    Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
-                                    свечи обязательно поднимут
-                                    настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
-                                    горючая смесь. Предназначено
-                                    для использования на открытом воздухе. <br><br>
-                                    В упаковке 4 штуки.
-                                </div>
-                                <div class="product__date">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
-                                    </svg>
-                                    01 июля 2024
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="product">
-                            <div class="product__image">
-                                <picture>
-                                    <source srcset="{{ asset('dist') }}/img/products/img1.webp" type="image/webp">
-                                    <img src="{{ asset('dist') }}/img/products/img1.png" alt="">
-                                </picture>
-                                <div class="product__images-button">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
-                                    </svg>
-                                    <span>3</span>
-                                </div>
-                            </div>
-                            <div class="product__info">
-                                <div class="product__name">Продаю карточку товара</div>
-                                <div class="product__price">150,000 ₽</div>
-                                <div class="product__description">
-                                    <div class="product__description-title">Описание</div>
-                                    Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
-                                    свечи обязательно поднимут
-                                    настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
-                                    горючая смесь. Предназначено
-                                    для использования на открытом воздухе. <br><br>
-                                    В упаковке 4 штуки.
-                                </div>
-                                <div class="product__date">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
-                                    </svg>
-                                    01 июля 2024
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="product">
-                            <div class="product__image">
-                                <picture>
-                                    <source srcset="{{ asset('dist') }}/img/products/img2.webp" type="image/webp">
-                                    <img src="{{ asset('dist') }}/img/products/img2.png" alt="">
-                                </picture>
-                                <div class="product__images-button">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
-                                    </svg>
-                                    <span>3</span>
-                                </div>
-                            </div>
-                            <div class="product__info">
-                                <div class="product__name">Продаю карточку товара</div>
-                                <div class="product__price">150,000 ₽</div>
-                                <div class="product__description">
-                                    <div class="product__description-title">Описание</div>
-                                    Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
-                                    свечи обязательно поднимут
-                                    настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
-                                    горючая смесь. Предназначено
-                                    для использования на открытом воздухе. <br><br>
-                                    В упаковке 4 штуки.
-                                </div>
-                                <div class="product__date">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
-                                    </svg>
-                                    01 июля 2024
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="product">
-                            <div class="product__image">
-                                <picture>
-                                    <source srcset="{{ asset('dist') }}/img/products/img3.webp" type="image/webp"><img src="{{ asset('dist') }}/img/products/img3.png" alt="">
-                                </picture>
-                                <div class="product__images-button">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
-                                    </svg>
-                                    <span>3</span>
-                                </div>
-                            </div>
-                            <div class="product__info">
-                                <div class="product__name">Продаю карточку товара</div>
-                                <div class="product__price">150,000 ₽</div>
-                                <div class="product__description">
-                                    <div class="product__description-title">Описание</div>
-                                    Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
-                                    свечи обязательно поднимут
-                                    настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
-                                    горючая смесь. Предназначено
-                                    для использования на открытом воздухе. <br><br>
-                                    В упаковке 4 штуки.
-                                </div>
-                                <div class="product__date">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
-                                    </svg>
-                                    01 июля 2024
-                                </div>
-                            </div>
-                        </a>
-                        <a href="#" class="product">
-                            <div class="product__image">
-                                <picture>
-                                    <source srcset="{{ asset('dist') }}/img/products/img4.webp" type="image/webp"><img src="{{ asset('dist') }}/img/products/img4.png"
-                                                                                                   alt="">
-                                </picture>
-                                <div class="product__images-button">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#photo"></use>
-                                    </svg>
-                                    <span>3</span>
-                                </div>
-                            </div>
-                            <div class="product__info">
-                                <div class="product__name">Продаю карточку товара</div>
-                                <div class="product__price">150,000 ₽</div>
-                                <div class="product__description">
-                                    <div class="product__description-title">Описание</div>
-                                    Продаю карточку — Набор свечей для торта 'Фонтан' - непременный атрибут праздника. Такие
-                                    свечи обязательно поднимут
-                                    настроение. Время работы до 40 сек. Высота свечи: 12.5 см. Материал: бумага, пластик,
-                                    горючая смесь. Предназначено
-                                    для использования на открытом воздухе. <br><br>
-                                    В упаковке 4 штуки.
-                                </div>
-                                <div class="product__date">
-                                    <svg>
-                                        <use xlink:href="{{ asset('dist/img/icons/icons.svg') }}#calendar"></use>
-                                    </svg>
-                                    01 июля 2024
-                                </div>
-                            </div>
-                        </a>
+                            </a>
+                        @endforeach
                     </div>
                 </div>
             </div>
